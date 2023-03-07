@@ -29,6 +29,7 @@ When creating a project it is important to think about organization of your code
      - Create state to track the game status
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
     - Create an alert when all squares have been filled with no winner.
+    - Update scoreboard to include ties
 - As a user, I can click on a restart button that will clear the game board.
 
 ### 🏔 Stretch Goals

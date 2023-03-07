@@ -23,7 +23,7 @@ const App = () => {
       const [player, setPlayer] = useState("❌")
 
       // Create a state to track the score
-      const [score, setScore] = useState([0,0])
+      const [score, setScore] = useState([0,0,0])
       // Create a state to activate an alert if game is over
           const [active, setActive] = useState(true)
           
@@ -55,6 +55,14 @@ const App = () => {
                   setActive (false)
             }
 
+            if(1 === squares.filter(value => null === value).length){
+                  setActive(false)
+                  let tempScore = score
+                  tempScore[2]++
+                  setScore(tempScore)
+                  alert("The game is a tie")
+            }
+
             // Change player to the alternative
             if ("❌" === player){
                   setPlayer("⭕️")
@@ -71,6 +79,7 @@ const App = () => {
             <div className="scoreBoard">
                   <h3>❌ : {score[0]}</h3>
                   <h3>⭕️ : {score[1]}</h3>
+                  <h3>Ties: {score[2]}</h3>
             </div>
       </div>
       <div className='gameboard'>
