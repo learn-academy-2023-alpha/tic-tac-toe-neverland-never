@@ -8,6 +8,11 @@ h1 {
       flex-direction: column;
 }
 
+.scoreBoard {
+      display:flex;
+      justify-content: space-evenly;
+}
+
 .gameboard {
       display: flex;
       flex-wrap: wrap;
