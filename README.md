@@ -11,6 +11,10 @@ When creating a project it is important to think about organization of your code
     - Use App.css settings to force the gameboard division to render in a 3x3
 - As a user, I can click on a square to mark it.
 - As a user, my partner can click on a square after me and see their mark.
+    - Create a state to track current player
+    - Display state in Header
+    - When click is processed, update game state to register click and render in square
+    - Change player after click
 - As a user, I can't click on a square that has already been marked.
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
 - As a user, I can't continue playing the game after the game has been won.
