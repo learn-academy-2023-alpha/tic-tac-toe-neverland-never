@@ -10,8 +10,12 @@ const App = () => {
       const [player, setPlayer] = useState("❌")
 
       const processClick= (index) => {
+            // Confirm that click is legal
+          
+            if (!squares[index]){
             // Create a temporary copy of the gameboard
             let tempArray = [...squares]
+          
 
             // Update the gameboard with the new click
             tempArray[index] = player
@@ -22,7 +26,7 @@ const App = () => {
                   setPlayer("⭕️")
             } else {
                   setPlayer("❌")
-            }
+            }}
       }
   return (
     <>

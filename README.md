@@ -10,6 +10,9 @@ When creating a project it is important to think about organization of your code
     - Use .map over the gameboard state to render the boxes
     - Use App.css settings to force the gameboard division to render in a 3x3
 - As a user, I can click on a square to mark it.
+    - Created a function to process clicks
+    - Pass function in component call to square
+    - Call function with Onclick in square component
 - As a user, my partner can click on a square after me and see their mark.
     - Create a state to track current player
     - Display state in Header
