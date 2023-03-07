@@ -75,6 +75,10 @@ const App = () => {
                   setPlayer("❌")
             }}
       }
+      const resetGame = () => {
+        setActive(true)
+        setSquares(Array(9).fill(null))
+      }
   return (
     <>
       <div className='header'>
@@ -90,6 +94,8 @@ const App = () => {
       <div className='gameboard'>
             {squares.map((value, index) => <Square show={value} key={index} index={index} processClick={processClick}/>)}  
       </div>
+
+      <div className="footer"><button onClick={resetGame}>Reset</button></div>
     </>
   )
 }
