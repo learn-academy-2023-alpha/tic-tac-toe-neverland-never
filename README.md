@@ -19,9 +19,16 @@ When creating a project it is important to think about organization of your code
     - When click is processed, update game state to register click and render in square
     - Change player after click
 - As a user, I can't click on a square that has already been marked.
+    - If square is null processClick 
 - As a user, when either my partner or I win the game (three squares in a row: horizontally, vertically, or diagonally) I can see a notice telling me which player won.
+    - Create a check to see if win conditions are fulfilled
+    - Create notification when win conditions are fulfilled
+    - Create a score state to track wins
+    - Update score state with winner
 - As a user, I can't continue playing the game after the game has been won.
+     - Create state to track the game status
 - As a user, if there are no more squares available, I can see a notice telling me that the game has ended.
+    - Create an alert when all squares have been filled with no winner.
 - As a user, I can click on a restart button that will clear the game board.
 
 ### 🏔 Stretch Goals
