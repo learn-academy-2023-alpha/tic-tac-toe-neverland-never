@@ -23,13 +23,16 @@ const App = () => {
       const [player, setPlayer] = useState("❌")
 
       // Create a state to track the score
+
       const [score, setScore] = useState([0,0,0])
+
       // Create a state to activate an alert if game is over
           const [active, setActive] = useState(true)
           
       const processClick= (index) => {
             // Confirm that click is legal
             if (!squares[index] && active){
+
             // Create a temporary copy of the gameboard
             let tempArray = [...squares]
 
@@ -52,7 +55,9 @@ const App = () => {
                         tempScore[1] += 1
                   }
                   setScore(tempScore)
+
                   setActive (false)
+
             }
 
             if(1 === squares.filter(value => null === value).length){
