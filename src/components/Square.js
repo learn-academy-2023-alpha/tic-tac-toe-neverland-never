@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Square = (props) => {
+const Square = ({show, processClick}) => {
   return (
-    <div className="square"></div>
+    <div className="square" onClick= {() => processClick()}> 
+      {show}
+    </div>
   )
 }
 export default Square
