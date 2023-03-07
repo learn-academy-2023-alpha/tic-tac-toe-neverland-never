@@ -7,6 +7,8 @@ When creating a project it is important to think about organization of your code
 ### 📚 User Stories
 
 - As a user, I can see a three by three grid game board on the page.
+    - Use .map over the gameboard state to render the boxes
+    - Use App.css settings to force the gameboard division to render in a 3x3
 - As a user, I can click on a square to mark it.
 - As a user, my partner can click on a square after me and see their mark.
 - As a user, I can't click on a square that has already been marked.
@@ -20,6 +22,7 @@ When creating a project it is important to think about organization of your code
 - As a user, I can see a pleasant stylings on the application.
 - As a user, I can see a notification that informs me whether it is currently my partner or my turn.
 - As a user, I can choose my marker from a predetermined list (X, O, a color, an emoji, etc...).
+- As a user, I receive a notification if no moves have been made after a while
 
 ### 👩‍💻 Developer Stretch Goals
 
@@ -33,3 +36,42 @@ When creating a project it is important to think about organization of your code
 
 - [Tic Tac Toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
 - [Tic Tac Toe win condition in React](https://forum.freecodecamp.org/t/need-help-understanding-react-tic-tac-toe-winner-function/137840)
+
+### Planning notes
+
+Structure
+-App.js
+* States
+--Gameboard (array)
+--Current Player (string)
+--Game Active (Boolean)
+* Functions
+--Reset
+--New Click
+    Consider whether the click is allowed
+    Do nothing if the square is filled
+    Consider win conditions
+        Wins:
+            0, 1, 2
+            3, 4, 5
+            6, 7, 8
+            0, 4, 8
+            6, 4, 2
+            0, 3, 6
+            1, 4, 7
+            2, 5, 8
+    If all the boxes are filled, no win => Tie
+* Render
+--Header
+    Title
+    Current Player
+    Reset Button
+    Scoreboard
+        X Wins: 
+        O Wins:
+        Ties:
+--Body
+    Gamebox (class)
+        9x Square.js
+--Footer
+    Credit line

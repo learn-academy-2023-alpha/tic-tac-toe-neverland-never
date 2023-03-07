@@ -1,5 +1,25 @@
+h1 {
+      text-align: center;
+    }
+    
+.header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+}
+
+.gameboard {
+      display: flex;
+      flex-wrap: wrap;
+      width: 320px;
+      margin: 0 auto;
+}
+
 .square {
   border: 2px solid black;
   height: 100px;
   width: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 75px;
 }
