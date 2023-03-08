@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, {useState, useEffect} from 'react'
 import Square from './components/Square'
+import Timer from './components/Timer'
 import './App.css'
 
 const App = () => {
@@ -20,16 +21,20 @@ const App = () => {
       ])
 
       // Create a state to track the current player
-      const [player, setPlayer] = useState("❌")
+      const [player, setPlayer] = useState("🏴‍☠️")
 
       // Create a state to track the score
-
       const [score, setScore] = useState([0,0,0])
 
       // Create a state to activate an alert if game is over
-          const [active, setActive] = useState(true)
-          
+      const [active, setActive] = useState(true)
+
+      // Create a state to force Timer to rerender
+      const [dummy, setDummy] = useState(true)
+
       const processClick= (index) => {
+            // Stop timer
+
             // Confirm that click is legal
             if (!squares[index] && active){
 
@@ -49,7 +54,7 @@ const App = () => {
             if(0 < victory.filter((value) => 3 === value.filter(vIndex => tempArray[vIndex] === player).length).length){
                   alert(`${player} has won the game!`)
                   let tempScore = score
-                  if("❌" === player){
+                  if("🏴‍☠️" === player){
                         tempScore[0] += 1
                   }else{
                         tempScore[1] += 1
@@ -57,28 +62,30 @@ const App = () => {
                   setScore(tempScore)
 
                   setActive (false)
-
-            }
-
-            if(1 === squares.filter(value => null === value).length){
+            }else if(1 === squares.filter(value => null === value).length){
                   setActive(false)
                   let tempScore = score
                   tempScore[2]++
                   setScore(tempScore)
                   alert("The game is a tie")
+            } else {
+                  // Restart the timer
+                  setDummy(true)
             }
 
             // Change player to the alternative
-            if ("❌" === player){
-                  setPlayer("⭕️")
+            if ("🏴‍☠️" === player){
+                  setPlayer("🧚")
             } else {
-                  setPlayer("❌")
-            }}
+                  setPlayer("🏴‍☠️")
+            }
+      }
       }
       const resetGame = () => {
         setActive(true)
         setSquares(Array(9).fill(null))
       }
+
   return (
     <>
       <div className='header'>
@@ -86,16 +93,19 @@ const App = () => {
             <h2>Player: {player}</h2>
             <h2>Scoreboard:</h2>
             <div className="scoreBoard">
-                  <h3>❌ : {score[0]}</h3>
-                  <h3>⭕️ : {score[1]}</h3>
-                  <h3>Ties: {score[2]}</h3>
+                  <div className='flexItem'> 🏴‍☠️ : {score[0]} </div>
+                  <div className='flexItem'> 🧚 : {score[1]} </div>
+                  <div className='flexItem'> Ties: {score[2]} </div>
             </div>
       </div>
       <div className='gameboard'>
             {squares.map((value, index) => <Square show={value} key={index} index={index} processClick={processClick}/>)}  
       </div>
 
-      <div className="footer"><button onClick={resetGame}>Reset</button></div>
+      <div className="footer">
+            <button onClick={resetGame}>Reset</button>
+            <Timer dummy={dummy}/>
+      </div>
     </>
   )
 }
