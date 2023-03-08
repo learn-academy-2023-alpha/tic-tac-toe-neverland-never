@@ -104,7 +104,7 @@ const App = () => {
 
       <div className="footer">
             <button onClick={resetGame}>Reset</button>
-            {/* <Timer dummy={dummy}/> */}
+            <Timer dummy={dummy}/>
       </div>
     </>
   )
