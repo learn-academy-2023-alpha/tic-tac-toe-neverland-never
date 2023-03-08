@@ -5,7 +5,7 @@ const Timer = ({dummy}) => {
       useEffect(() => {
             const timer = setTimeout(() => {
                   alert('Are you still playing?')
-            }, 5000);
+            }, 30000);
             return () => clearTimeout(timer);
           }, [{dummy}]);
 
