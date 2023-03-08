@@ -23,7 +23,8 @@ const App = () => {
       const [player, setPlayer] = useState("❌")
 
       // Create a state to track the score
-      const [score, setScore] = useState([0,0])
+
+      const [score, setScore] = useState([0,0,0])
 
       // Create a state to activate an alert if game is over
           const [active, setActive] = useState(true)
@@ -59,12 +60,24 @@ const App = () => {
 
             }
 
+            if(1 === squares.filter(value => null === value).length){
+                  setActive(false)
+                  let tempScore = score
+                  tempScore[2]++
+                  setScore(tempScore)
+                  alert("The game is a tie")
+            }
+
             // Change player to the alternative
             if ("❌" === player){
                   setPlayer("⭕️")
             } else {
                   setPlayer("❌")
             }}
+      }
+      const resetGame = () => {
+        setActive(true)
+        setSquares(Array(9).fill(null))
       }
   return (
     <>
@@ -75,11 +88,14 @@ const App = () => {
             <div className="scoreBoard">
                   <h3>❌ : {score[0]}</h3>
                   <h3>⭕️ : {score[1]}</h3>
+                  <h3>Ties: {score[2]}</h3>
             </div>
       </div>
       <div className='gameboard'>
             {squares.map((value, index) => <Square show={value} key={index} index={index} processClick={processClick}/>)}  
       </div>
+
+      <div className="footer"><button onClick={resetGame}>Reset</button></div>
     </>
   )
 }
